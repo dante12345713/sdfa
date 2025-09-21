@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta y Flor Amarilla</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(20px);}
+      to   {opacity:1; transform: translateY(0);}
+    }
+    .fade-in {animation: fadeIn 1s ease forwards;}
+
+    @keyframes sway {
+      0%,100% {transform: rotate(0deg);}
+      50%     {transform: rotate(2deg);}
+    }
+    .sway {animation: sway 6s ease-in-out infinite;}
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-300">
+
+  <!-- Pantalla inicial -->
+  <div id="inicio" class="text-center">
+    <button id="btnAbrir"
+      class="px-10 py-4 bg-yellow-500 text-white text-xl font-bold rounded-2xl shadow-lg hover:shadow-2xl hover:bg-yellow-600 transition">
+      🌼 Abrir
+    </button>
+  </div>
+
+  <!-- Carta -->
+  <div id="carta" class="hidden max-w-lg p-10 bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl text-gray-800">
+    <h1 class="text-4xl font-bold mb-6 text-center">Cartita para ti❤</h1>
+    <p class="mb-6 leading-relaxed text-center">
+      Querida Belencita de mi vida,
+      <br><br>
+      No hay un solo día en que no piense en ti, aunque estemos separados por kilómetros. Extraño muchísimo esas noches en que hacíamos llamadas, cuando nos decíamos cosas lindas y sentíamos que la distancia desaparecía.
+      También extraño esos besos en audio que me mandabas, porque cada uno me hacía sentir más cerca de ti y me llenaba de felicidad.
+
+      Sé que quizás ahora necesitas tu propio espacio, y de verdad lo respeto.
+      No quiero molestarte ni hacerte sentir presión, solo quiero que sepas que sigo aquí, que me sigues gustando muchísimo y que mi cariño por ti no cambiara.
+
+      Hoy dia se celebra el Día de la Flor Amarilla, quiero aprovechar para recordarte lo especial que eres para mí.
+      de echo 🤓☝ Dicen por ahi (GOOGLE) que las flores amarillas representan amor, alegría y un futuro lleno de esperanza, y eso es exactamente lo que deseo para ti y para nosotros.
+      Quiero que sepas que siempre estaré para ti y que sin importar la distancia, nunca estarás sola.
+
+      Cuando te extraño, simplemente veo tus fotos. Me recuerdan que te quiero a mi lado, pero también me dan la fuerza para esperar el día en que podamos vernos y estar juntos.
+      yo voy a seguir queriéndote y amándote, apoyándote en todo lo que pueda desde aquí, y confío en que algún día podremos abrazarnos y vivir momentos juntos.
+
+      Con todo mi amor.
+      
+    </p>
+    <div class="text-center">
+      <button id="btnFlores"
+        class="px-8 py-3 bg-yellow-500 text-white rounded-xl shadow-lg hover:bg-yellow-600 transition">
+        Ver la Flor Amarilla 🌼
+      </button>
+    </div>
+  </div>
+
+  <!-- Flor única -->
+  <div id="flores" class="hidden flex flex-col items-center text-center">
+    <h2 class="text-5xl font-extrabold text-white drop-shadow-xl mb-8">
+      Una Flor Amarilla
+    </h2>
+
+    <svg class="w-[18rem] h-[24rem] sway" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="petalGrad" r="100%">
+          <stop offset="0%" stop-color="#fef3c7"/>
+          <stop offset="100%" stop-color="#facc15"/>
+        </radialGradient>
+        <radialGradient id="centerGrad" r="100%">
+          <stop offset="0%" stop-color="#92400e"/>
+          <stop offset="100%" stop-color="#78350f"/>
+        </radialGradient>
+        <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4ade80"/>
+          <stop offset="100%" stop-color="#16a34a"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Tallo -->
+      <rect x="140" y="150" width="20" height="200" rx="8" fill="url(#stemGrad)"/>
+
+      <!-- Hojas -->
+      <ellipse cx="110" cy="220" rx="40" ry="18" fill="#22c55e" transform="rotate(-20 110 220)"/>
+      <ellipse cx="190" cy="230" rx="40" ry="18" fill="#22c55e" transform="rotate(20 190 230)"/>
+
+      <!-- Flor única -->
+      <g transform="translate(150 120)">
+        <ellipse cx="0" cy="-30" rx="15" ry="35" fill="url(#petalGrad)" />
+        <ellipse cx="0" cy="30" rx="15" ry="35" fill="url(#petalGrad)" />
+        <ellipse cx="-30" cy="0" rx="35" ry="15" fill="url(#petalGrad)" />
+        <ellipse cx="30" cy="0" rx="35" ry="15" fill="url(#petalGrad)" />
+        <ellipse transform="rotate(45)" cx="0" cy="-30" rx="15" ry="35" fill="url(#petalGrad)" />
+        <ellipse transform="rotate(45)" cx="0" cy="30" rx="15" ry="35" fill="url(#petalGrad)" />
+        <ellipse transform="rotate(45)" cx="-30" cy="0" rx="35" ry="15" fill="url(#petalGrad)" />
+        <ellipse transform="rotate(45)" cx="30" cy="0" rx="35" ry="15" fill="url(#petalGrad)" />
+        <circle cx="0" cy="0" r="18" fill="url(#centerGrad)" />
+      </g>
+    </svg>
+
+    <p class="text-white text-lg max-w-md mt-6 drop-shadow-lg">
+      Te regalo esta flor amarilla con todo mi amor, te quiero mucho ❤.
+    </p>
+  </div>
+
+  <script>
+    const inicio  = document.getElementById('inicio');
+    const carta   = document.getElementById('carta');
+    const flores  = document.getElementById('flores');
+    const btnAbrir  = document.getElementById('btnAbrir');
+    const btnFlores = document.getElementById('btnFlores');
+
+    btnAbrir.addEventListener('click', () => {
+      inicio.classList.add('hidden');
+      carta.classList.remove('hidden');
+      carta.classList.add('fade-in');
+    });
+
+    btnFlores.addEventListener('click', () => {
+      carta.classList.add('hidden');
+      document.body.className =
+        "min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 via-yellow-400 to-yellow-600";
+      flores.classList.remove('hidden');
+      flores.classList.add('fade-in');
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
